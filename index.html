@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REST Countries API with color theme switcher</title>
+  <link rel="stylesheet" href="app.css" />
+ </head>
+ <body>
+  <header>
+   <div class="header-wrapper">
+    <a href="index.html"><h1>Where in the world?</h1></a>
+    <div class="dark-mode-container">
+     <ion-icon name="moon-outline"></ion-icon>
+     <p>Dark Mode</p>
+    </div>
+   </div>
+  </header>
+
+  <main>
+   <section id="ui-elements">
+    <article class="input-container">
+     <ion-icon name="search-outline"></ion-icon>
+     <input id="search-input" type="text" placeholder="search for a country..." />
+    </article>
+
+    <article class="dropdown-menu">
+     <div class="button-container">
+      <button class="dropbtn_region">Filter by region</button>
+      <ion-icon name="chevron-down-outline"></ion-icon>
+     </div>
+     <div class="dropdown-content">
+      <button class="filter_region this" data-filter="*">All</button>
+      <button class="filter_region" data-filter="Africa">Africa</button>
+      <button class="filter_region" data-filter="Americas">Americas</button>
+      <button class="filter_region" data-filter="Asia">Asia</button>
+      <button class="filter_region" data-filter="Europe">Europe</button>
+      <button class="filter_region" data-filter="Oceania">Oceania</button>
+     </div>
+    </article>
+   </section>
+
+   <section id="countries-container"></section>
+   <div class="empty-message"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="color-mode.js"></script>
+  <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+ </body>
+</html>
