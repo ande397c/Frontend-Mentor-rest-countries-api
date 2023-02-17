@@ -60,7 +60,7 @@ header {
 .header-wrapper > a {
  text-decoration: none;
  color: var(--color-text);
- font-size: 0.8rem;
+ font-size: 0.6rem;
 }
 
 .dark-mode-container {
@@ -354,6 +354,12 @@ ion-icon {
  cursor: pointer;
 }
 
+@media (max-width: 600px) {
+ .header-wrapper > a {
+  font-size: 0.5rem;
+ }
+}
+
 @media (min-width: 1000px) {
  #country-container {
   display: grid;
@@ -375,5 +381,9 @@ ion-icon {
   align-items: baseline;
   margin-right: auto;
   gap: 1.2rem;
+ }
+
+ .header-wrapper > a {
+  font-size: 0.7rem;
  }
 }
