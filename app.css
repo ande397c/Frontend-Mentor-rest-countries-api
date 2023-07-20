@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
-/* https://coryrylan.com/blog/how-to-center-in-css-with-css-grid */
 
 /* Color default */
 
@@ -35,11 +34,6 @@ body {
 main {
  padding-inline: 5%;
 }
-
-/* a {
- text-decoration: none;
- color: var(--color-text);
-} */
 
 /*-- Header --*/
 
@@ -387,3 +381,90 @@ ion-icon {
   font-size: 0.7rem;
  }
 }
+
+
+/* @media (prefers-color-scheme: dark) {
+
+    header {
+    background-color: hsl(209, 23%, 22%);
+    box-shadow: 1px 3px 27px -2px rgba(0, 0, 0, 0.21);
+    }
+
+	body {
+		background-color: hsl(207, 26%, 17%);
+	}
+
+    .header-wrapper > a {
+    color: hsl(0, 0%, 100%);
+    }
+
+    .dark-mode-container p {
+    color: hsl(0, 0%, 100%);
+    }
+
+    ion-icon {
+    color: hsl(0, 0%, 100%);
+    }
+
+    #search-input {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: 1px 3px 27px -2px rgba(0, 0, 0, 0.21);
+    }
+
+    #search-input::placeholder {
+    color: hsl(0, 0%, 100%);
+    }
+
+    .dropbtn_region {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: 1px 3px 27px -2px rgba(0, 0, 0, 0.21);
+    }
+
+    .dropdown-content > .filter_region {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    }
+
+    .empty-message {
+    color: hsl(0, 0%, 100%);
+    }
+
+    .country-text h3 {
+    color: hsl(0, 0%, 100%);
+    }
+
+    .country-text p {
+    color: hsl(0, 0%, 100%);
+    }
+
+    .country-text span {
+    color: hsl(206, 13%, 76%);
+    }
+
+    #back_btn {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: 1px 3px 27px -2px rgba(0, 0, 0, 0.21);
+    }
+
+    #country-container p {
+    color: hsl(0, 0%, 100%);
+    }
+
+    #country-container span {
+    font-weight: normal;
+    color: hsl(206, 13%, 76%);
+    }
+
+    .detailed-top-text h2, .no-borders, #borders-container h4  {
+    color: hsl(0, 0%, 100%);
+    }
+
+    .border {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    }
+} */
+

@@ -6,7 +6,6 @@ let countryname = urlParams.get("name");
 let country;
 
 const countryContainer = document.querySelector("#country-container");
-const borderContainer = document.querySelector("#borders-container");
 
 document.addEventListener("DOMContentLoaded", documentReady);
 
@@ -24,7 +23,6 @@ async function getSpecifikCountry(countryname) {
  const url = `https://restcountries.com/v3.1/alpha/${countryname}`;
  let data = await fetch(url);
  countryData = await data.json();
- console.log(countryData);
  getCountry(countryData);
 }
 
@@ -34,35 +32,32 @@ function getCountry(countryData) {
  displayCountry(countryData);
 }
 
-function displayCountry(country) {
- country.forEach((element) => {
+function displayCountry(countryData) {
+  console.log("country:", countryData)
+  const country = countryData[0];
   const borders = document.createElement("article");
   borders.id = "borders-container";
 
-  // Get custom currency and language values
 
-  const currencyObject = element.currencies;
-  const currencyValue = Object.values(currencyObject);
+  const currencyValue = Object.values(country.currencies);
 
-  const languageObject = element.languages;
-  const languageValue = Object.values(languageObject).join(", ");
+  const languageValue = Object.values(country.languages).join(", ");
 
-  const nameObject = element.name.nativeName;
-  const nativeNameValue = Object.values(nameObject);
+  const nativeNameValue = Object.values(country.name.nativeName);
 
   countryContainer.innerHTML = `
-        <img src="${element.flags.svg}" alt="${element.name}-flag/>
+        <img src="${country.flags.svg}" alt="${country.name.common}-flag"/>
         <div class="detailed-text">
       <div class="detailed-top-text">
-        <h2>${element.name.common}</h2>
+        <h2>${country.name.common}</h2>
         <p>Native Name: <span>${nativeNameValue[0].common}</span></p>
-        <p>Population: <span>${getNumberWithCommas(element.population)}</span></p>
-        <p>Region: <span>${element.region}</span></p>
-        <p>Sub Region: <span>${element.subregion}</span></p>
-        <p>Capital: <span>${element.capital}</span></p>
+        <p>Population: <span>${getNumberWithCommas(country.population)}</span></p>
+        <p>Region: <span>${country.region}</span></p>
+        <p>Sub Region: <span>${country.subregion}</span></p>
+        <p>Capital: <span>${country.capital}</span></p>
       </div>
       <div class="detailed-bottom-text">
-        <p>Top Level Domain: <span>${element.tld}</span></p>
+        <p>Top Level Domain: <span>${country.tld}</span></p>
         <p>Currencies:<span> ${currencyValue[0].name}</span></p>
         <p>Languages:<span> ${languageValue}</span></p>
       </div>
@@ -75,13 +70,14 @@ function displayCountry(country) {
   const borderElementsContainer = document.createElement("div");
   borderElementsContainer.className = "border-elements-container";
 
-  if (typeof country[0].borders === "undefined") {
+  console.log( "borders:", country.borders)
+  if (typeof country.borders === "undefined") {
    borders.innerHTML = `
-        <h4>Border Countries:</h4>
-      <div class="no-borders">This country has no borders</div>
+      <h4>Border Countries:</h4>
+      <div class="no-borders">This country has no border countries</div>
       `;
   } else {
-   element.borders.forEach((element) => {
+   country.borders.forEach((element) => {
     const borderElement = document.createElement("div");
     borderElement.className = "border";
     borderElement.textContent = element;
@@ -92,11 +88,10 @@ function displayCountry(country) {
   borders.appendChild(borderElementsContainer);
 
   countryContainer.appendChild(borders);
- });
 
- const borders = document.querySelectorAll(".border");
+ const bordersel = document.querySelectorAll(".border");
 
- borders.forEach((border) => {
+ bordersel.forEach((border) => {
   border.addEventListener("click", () => getSpecifikCountry(border.textContent));
  });
 }
